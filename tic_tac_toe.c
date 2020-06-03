@@ -113,42 +113,37 @@ int winner_check(char **arr, int move)
     return 3;
 }
 
-// void print_array(char **arr)
-// {
-//     printf("\n");
-//     for(int i=0;i<3;i++)
-//     {
-//         for(int j=0;j<3;j++)
-//         {
-//             if(arr[i][j]!='\0')
-//                 printf(" %c |",arr[i][j]);
-//             else
-//                 printf("___|");
-//         }
-//         printf("\n");
-//     }
-// }
-
 void print_array(char **arr)
 {
-    printf("\n");
-    printf("Player 1 (o)  -  Player 2 (x)\n");
-
-    printf("     |     |     \n");
-    if(arr[0][0]!='\0' && arr[0][1]!='\0' && arr[0][2]!='\0')
-        printf("  %c  |  %c  |  %c \n", arr[0][0], arr[0][1], arr[0][2]);
+    printf("       |       |       \n");
+    if(arr[0][0]!='\0')
+        printf("   %c   |",arr[0][0]);
     else
-        printf("  %c   |  %c   |  %c \n", arr[0][0], arr[0][1], arr[0][2]);
-
-    printf("_____|_____|_____\n");
-    printf("     |     |     \n");
-
-    printf("  %c   |  %c   |  %c \n", arr[1][0], arr[1][1], arr[1][2]);
-
-    printf("_____|_____|_____\n");
-    printf("     |     |     \n");
-
-    printf("  %c   |  %c   |  %c \n", arr[2][0], arr[2][1], arr[2][2]);
-
-    printf("     |     |     \n\n");
+        printf("       |");
+    if(arr[0][1]!='\0')
+        printf("   %c   |",arr[0][1]);
+    else
+        printf("       |");
+    if(arr[0][2]!='\0')
+        printf("   %c\n",arr[0][2]);
+    else
+        printf("       \n");
+    for(int i=1;i<3;++i)
+    {
+        printf("_______|_______|_______\n");
+        printf("       |       |       \n");
+        if(arr[i][0]!='\0')
+            printf("   %c   |",arr[i][0]);
+        else
+            printf("       |");
+        if(arr[i][1]!='\0')
+            printf("   %c   |",arr[i][1]);
+        else
+            printf("       |");
+        if(arr[i][2]!='\0')
+            printf("   %c\n",arr[i][2]);
+        else
+            printf("       \n");
     }
+    printf("       |       |       \n");
+}
